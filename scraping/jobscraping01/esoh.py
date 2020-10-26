@@ -99,10 +99,10 @@ def ReadWorkGoKr():
     # DB 저장하기
     client = ConnectDB()
     for item in item_list:
-        InsertDB(client, 'testdb', 'workgokr', item)
+        InsertDB(client, 'jobdb', 'datalist', item)
     client.close()
 
-    ShowDB(client,  'testdb', 'workgokr')
+    ShowDB(client,  'jobdb', 'datalist')
     
     # 종료하기
     driver.quit()
