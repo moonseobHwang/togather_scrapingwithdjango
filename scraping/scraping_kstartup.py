@@ -54,7 +54,7 @@ def scraping_kstartup():
         print(data)
         DBinsert(data)
 
-print(datetime.now().strftime('%Y-%m-%d %a %H:%M:%s'))
+    print(datetime.now().strftime('%Y-%m-%d %a %H:%M:%s'))
 
 if __name__ == "__main__":
     scraping_kstartup()
