@@ -15,7 +15,7 @@ def ConnectDB():
     리턴값 : MongoCLient 객체
     """
     # str_server = "mongodb://192.168.219.110:27017/"
-    str_server = "mongodb://127.0.0.1:27017/"
+    str_server = "mongodb://127.0.0.1:7020/"
 
     client = MongoClient(str_server)
     return client

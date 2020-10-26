@@ -57,7 +57,7 @@ def job():
                 link=soup.find('a',attrs={'class':'a-link'}).get_text() # 채용정보 상세모집요강 홈페이지
                 link = link.replace('\n','',1000).replace('\t','',1000) # replace \n의 갯수 한도를 의미, \n이 1000개 이하인건 다 지워라
                 
-                with MongoClient('mongodb://127.0.0.1:27017/') as client:
+                with MongoClient('mongodb://127.0.0.1:7020/') as client:
                     jobdb = client['jobdb'] # jobdb라는 데이터 베이스 생성 => mongodb에서 show dbs로 확인 가능
                     dic = {'Insert_name':"LKH", 'scraping_site':"worknet", 'title':title, 'company_name':company_name, 'link':link, 'payment':payment, 'apply_startdate':apply_startdate, 'apply_enddate':apply_enddate, 'link':link, 'desc':desc, 'career':career, 'work_time':work_time, 'location':location } # 스크랩핑한 데이터와 DB를 맵핑 시키기. Key값은 DB의 Column이고, Value값은 스크랩핑한 데이터
                     jobdb.datalist.insert_one(dic) # jobdb 데이터 베이스에 datalist라는 collection을 생성하고 위에 생성된 dict 타입의 데이터를 하나씩 입력

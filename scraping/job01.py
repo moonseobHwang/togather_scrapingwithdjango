@@ -1,15 +1,21 @@
 import schedule
 import time, datetime
+''' 강사님 sample code
+# def job():
+#     print("I'm working...")
 
-def job():
-    print("I'm working...")
-
-schedule.every(5).seconds.do(job)
+# schedule.every(5).seconds.do(job)
 
 # reference other file
-import sample_function
-schedule.every(24).hours.do(sample_function.print_message)
+# import sample_function
+# schedule.every(24).hours.do(sample_function.print_message)
 
+# while True:
+#     schedule.run_pending()
+#     time.sleep(1)
+
+# run python3 ./job01.py    # in Terminal
+'''
 from jobscraping01 import job01_ceg, job01_jhc, job01_jhj, job01_lkh, job01_oes, job01_pgj
 
 def call_scrapping():
@@ -20,16 +26,11 @@ def call_scrapping():
     job01_jhj.worknet()
     job01_lkh.job()
     job01_oes.ReadWorkGoKr()
-    # job01_pgj.
+    job01_pgj.w2m()
     print('- complete')
 
 schedule.every(1).seconds.do(call_scrapping)
 print("start test scheduler")
 while True:
     schedule.run_pending()
-
-# while True:
-#     schedule.run_pending()
-#     time.sleep(1)
-
-# run python3 ./job01.py    # in Terminal
+    time.sleep(1)

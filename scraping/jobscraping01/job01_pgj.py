@@ -39,7 +39,7 @@ def w2m():
             data = {"title": title, "job_url": link, "create_date": datetime.datetime.now()}
             dates.append(data)
             print (dates)
-            with MongoClient('mongodb://192.168.0.159:27017/')  as client:
+            with MongoClient('mongodb://192.168.0.159:7020/')  as client:
                 mydb = client.mydb
                 res = mydb.datalist.insert_many(dates)
             elem = driver.find_element_by_xpath('//*[@id="currentPageNo"]')

@@ -7,7 +7,7 @@ from selenium import webdriver
 from datetime import datetime
 
 def insertDB(data):
-        with MongoClient('mongodb://127.0.0.1:27017/') as client:
+        with MongoClient('mongodb://127.0.0.1:7020/') as client:
                 myworkdb = client['jobdb']
                 myworkdb.datalist.insert_one(data)
 
