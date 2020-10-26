@@ -11,7 +11,7 @@ def job():
 # schedule.every(3).seconds.do(sample_function.print_message)
 from scraping_kstartup import scraping_kstartup
 # schedule.every(1).minutes.do(scraping_kstartup)
-schedule.every().day.at("8:30").do(scraping_kstartup)
+schedule.every().day.at("08:30").do(scraping_kstartup)
 
 while True:
     schedule.run_pending()
