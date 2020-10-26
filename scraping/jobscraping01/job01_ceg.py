@@ -88,8 +88,3 @@ def Scrap():
 if __name__ == "__main__":
         Scrap()                
       
-    
-# schedule.every(2).minutes.do(Scrap)
-# while True:
-#     schedule.run_pending()
-#     time.sleep(1)
