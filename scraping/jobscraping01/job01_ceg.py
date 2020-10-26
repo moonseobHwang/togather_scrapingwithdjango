@@ -6,19 +6,31 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 from datetime import datetime
 
+# 추가 
+import os
+from selenium.webdriver.chrome.options import Options
+
 def insertDB(data):
-        with MongoClient('mongodb://127.0.0.1:7020/') as client:
+        with MongoClient('mongodb://192.168.0.159:7020/') as client:
                 myworkdb = client['jobdb']
                 myworkdb.datalist.insert_one(data)
 
 def Scrap():
-        path = '/home/rapa01/Documents/Develop/ownproject/data/ch_l'
-        with webdriver.Chrome(executable_path=path) as driver:
+        # webdriver  추가 
+        strfile = os.path.dirname(os.path.realpath(__file__))
+        strfile = strfile + "/chromedriver_86_4240"
+
+        options = Options()
+        options.headless = True
+        driver = webdriver.Chrome(executable_path=strfile, options=options)
+        driver.implicitly_wait(3)
+        # 추가 end 
+        
+        with webdriver.Chrome(executable_path=strfile) as driver:
                 url = "http://www.saramin.co.kr/zf_user/search?searchType=search&loc_mcd=101000%2C102000&company_cd=0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C9%2C10&searchword=AI&panel_type=&search_optional_item=y&search_done=y&panel_count=y"
 
                 driver.get(url=url)
             
-                
                 try:
                         company_names = driver.find_elements_by_css_selector("div.area_corp > strong")
                 except Exception as e:
