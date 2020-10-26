@@ -8,7 +8,7 @@ import datetime
 
 
 def worknet():
-    insert_name = 'hojong'
+    insert_name = 'Hojong'
     scraping_site = 'worknet'
     key_words = ["python", "web", "AI",'빅데이터','인공지능']
     options = Options() 
