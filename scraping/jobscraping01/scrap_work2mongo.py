@@ -27,7 +27,7 @@ while j < c:
         title = title.strip('\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t')  
         link =titl.get_attribute('href')
         
-        data = {"title": title, "link": link, "create_date": datetime.datetime.now()}
+        data = {"title": title, "job_url": link, "create_date": datetime.datetime.now()}
         dates.append(data)
         print (data)
            
@@ -36,12 +36,12 @@ while j < c:
         title = titl.get_attribute('text')
         title = title.strip('\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t')
         link =titl.get_attribute('href')
-        data = {"title": title, "link": link, "create_date": datetime.datetime.now()}
+        data = {"title": title, "job_url": link, "create_date": datetime.datetime.now()}
         dates.append(data)
         print (dates)
         with MongoClient('mongodb://192.168.0.159:27017/')  as client:
-            mydb = client.mydb
-            res = mydb.work.insert_many(dates)
+            mydb = client.jobdb
+            res = mydb.datalist.insert_many(dates)
         elem = driver.find_element_by_xpath('//*[@id="currentPageNo"]')
                
         page = (j//10)+1
