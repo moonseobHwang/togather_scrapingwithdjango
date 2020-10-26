@@ -3,8 +3,8 @@ from selenium.webdriver.common.keys import Keys as keys
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup as bs 
 from pymongo import MongoClient
-import datetime
-
+import datetime, os
+from selenium.webdriver.chrome.options import Options
 
 
 def worknet():
@@ -16,9 +16,17 @@ def worknet():
     options.add_argument('--headless') #chrome hidden 
 
     for key_word in key_words:
-        driver = webdriver.Chrome(executable_path="../chromedriver", chrome_options=options)
+        strfile = os.path.dirname(os.path.realpath(__file__))
+        strfile = strfile + "/chromedriver_86_4240"
+
+        options = Options()
+        options.headless = True
+        driver = webdriver.Chrome(executable_path=strfile, options=options)
+        driver.implicitly_wait(3)
+
+        # driver = webdriver.Chrome(executable_path="../chromedriver", chrome_options=options)
         driver.get(url='https://www.work.go.kr/seekWantedMain.do')
-        driver.implicitly_wait(0.5)
+        # driver.implicitly_wait(0.5)
 
         driver.find_element_by_xpath("//*[@id='gnb']/ul/li[1]/a").click() # 채용정보버튼
         driver.find_element_by_xpath('//*[@id="srcKeyword"]').send_keys(key_word) # 검색어 입력

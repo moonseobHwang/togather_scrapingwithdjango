@@ -3,10 +3,20 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
-import requests, datetime, time, schedule
+import requests, datetime, time, schedule, os
+from selenium.webdriver.chrome.options import Options
 
 def job():
-    driver = webdriver.Chrome(executable_path='/home/rapa/Documents/job_scraping/chromedriver') # rapa computer
+    # 드라이버 불러오기
+    strfile = os.path.dirname(os.path.realpath(__file__))
+    strfile = strfile + "/chromedriver_86_4240"
+
+    options = Options()
+    options.headless = True
+    driver = webdriver.Chrome(executable_path=strfile, options=options)
+    driver.implicitly_wait(3)
+
+    # driver = webdriver.Chrome(executable_path='/home/rapa/Documents/job_scraping/chromedriver') # rapa computer
     #driver = webdriver.Chrome(executable_path='chromedriver') # private computer
 
     #'mongodb://3.35.166.10:58215/' # goorm mongodb ip, local에서 실행하고 goorm mongoDB에 데이터 쌓기
