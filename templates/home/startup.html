@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>title</td>
+            <td>link</td>
+            <td>enddate</td>
+        </tr>
+        {%for col in page_obj%}
+        <tr>
+            <td>{{page_obj.post_title}}</td>
+            <td>{{page_obj.detail_llink}}</td>
+            <td>{{page_obj.due_enddate}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+    <ul class="pagination">
+        {%if page_obj.has_previous%}
+        <li class="page-item active"><a class='page-link' href="?page=1">FIRST</a> </li>
+        <li class="page-item active"><a class='page-link' href="?page={{page_obj.previous_page_number}}">PRE</a> </li>
+        {%endif%}
+        <li class='page-item active page-link'>{{page_obj.number}} of {{page_obj.paginator.num_pages}}</li>
+        <li class='page-item active'><a class='page-link' href="?page={{page_obj.next_page_number}}">NEXT</a></li>
+        <li class='page-item active'><a class='page-link' href="?page={{page_obj.paginator.num_pages}}">LAST</a></li>
+    </ul>
+</body>
+</html>
