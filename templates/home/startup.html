@@ -7,14 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <table>
+    <table class="table table-striped">
         <tr>
             <td>TITLE</td>
             <td>ENDDATE</td>
         </tr>
         {%for col in page_obj%}
         <tr>
-            <td><a href="https://www.k-startup.go.kr/common/announcement/announcementList.do?mid=30004&bid=701&searchAppAt=A">{{col.post_title}}</a></td>
+            <td><a href="https://www.k-startup.go.kr/common/announcement/announcementList.do?mid=30004&bid=701&searchAppAt=A" target="_blank">{{col.post_title}}</a></td>
             <td>{{col.due_enddate}}</td>
         </tr>
         {%endfor%}
@@ -24,9 +24,14 @@
         <li class="page-item active"><a class='page-link' href="?page=1">FIRST</a> </li>
         <li class="page-item active"><a class='page-link' href="?page={{page_obj.previous_page_number}}">PRE</a> </li>
         {%endif%}
+        
         <li class='page-item active page-link'>{{page_obj.number}} of {{page_obj.paginator.num_pages}}</li>
+        {%if page_obj.has_next%}
         <li class='page-item active'><a class='page-link' href="?page={{page_obj.next_page_number}}">NEXT</a></li>
         <li class='page-item active'><a class='page-link' href="?page={{page_obj.paginator.num_pages}}">LAST</a></li>
+        {%endif%}
+        
+        
     </ul>
 </body>
 </html>
