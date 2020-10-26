@@ -1,1 +1,3 @@
 .vscode/*
+job01/*/*.pyc
+*/*/*.pyc
