@@ -6,7 +6,7 @@ from pymongo import MongoClient
 
 
 def DBinsert(data):
-    db_url = "mongodb://127.0.0.1:27017/"
+    db_url = "mongodb://192.168.0.171:27017/"
     db_name = "startupdb"
     collection_name = "startup"
 

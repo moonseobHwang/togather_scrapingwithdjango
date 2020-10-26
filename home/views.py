@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from pymongo import MongoClient
 from django.core.paginator import Paginator
+
 # Create your views here.
 from django.shortcuts import render		# add
 def home(request):
@@ -17,4 +18,4 @@ def startup(req):
     result_page = Paginator(result,10)
     data['page_obj'] = result_page.get_page(page)    
     # 
-    return render(request, 'home/startup.html',context=data)
+    return render(req, 'home/startup.html',context=data)
