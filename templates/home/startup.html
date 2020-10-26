@@ -10,13 +10,11 @@
     <table>
         <tr>
             <td>title</td>
-            <td>link</td>
             <td>enddate</td>
         </tr>
         {%for col in page_obj%}
         <tr>
-            <td>{{page_obj.post_title}}</td>
-            <td>{{page_obj.detail_llink}}</td>
+            <td><a href="https://www.k-startup.go.kr/common/announcement/announcementList.do?mid=30004&bid=701&searchAppAt=A">page_obj.post_title}}</a></td>
             <td>{{page_obj.due_enddate}}</td>
         </tr>
         {%endfor%}
