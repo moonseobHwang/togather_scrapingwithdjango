@@ -24,7 +24,6 @@ browser.get("https://www.work.go.kr/empInfo/empInfoSrch/list/dtlEmpSrchList.do?k
 
 time.sleep(3)
 
-#data = browser.find_element_by_css_selector('a[href="#none"]')
 aa=list()
 comp=list()
 payl=list()
