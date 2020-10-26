@@ -8,7 +8,7 @@ schedule.every(5).seconds.do(job)
 
 # reference other file
 import sample_function
-schedule.every(3).seconds.do(sample_function.print_message)
+schedule.every(24).hours.do(sample_function.print_message)
 
 while True:
     schedule.run_pending()
