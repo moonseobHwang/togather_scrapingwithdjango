@@ -35,10 +35,10 @@ def putdata():
             data = {'insert_name':insert_name, 'scraping_site':scraping_site, 'title':title, "company_name":company_name, 'job_url':job_url, "apply_startdate":apply_startdate, "apply_enddate":apply_enddate, "create_date":create_date, "desc":desc, "payment":payment, "career":career, "work_time":work_time, "academic":academic, "location":location}
             job2_DB.job02_02.insert_one(data)
     now = datetime.datetime.now()
-    print(data)
-    print(now, "working..")
+    # print(data)
+    print(now, "job02_02_working..")
 
-schedule.every(3).seconds.do(putdata)
+schedule.every(24).hours.do(putdata)
 while True:
     schedule.run_pending()
     time.sleep(1)
