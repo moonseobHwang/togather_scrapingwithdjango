@@ -20,9 +20,10 @@ def scrapping_jobkorea(keyword='인공지능'):
                     'job_url':link, "create_date": datetime.datetime.now()}
             data.append(dic)
 
-        with MongoClient('mongodb://127.0.0.1:27017/')  as client:
-            mydb = client.mydb
-            res = mydb.jobkorea.insert_many(data)
+        # with MongoClient('mongodb://127.0.0.1:27017/')  as client:
+        with MongoClient('mongodb://127.0.0.1:7020/')  as client:
+            mydb = client.jobdb
+            res = mydb.datalist.insert_many(data)
 
 def call_scrapping_jobkorea():
     t = time.localtime()
@@ -31,7 +32,7 @@ def call_scrapping_jobkorea():
     print('- complete')
 
 if __name__ == "__main__":
-    schedule.every(10).seconds.do(call_scrapping_jobkorea)
+    schedule.every(1).seconds.do(call_scrapping_jobkorea)
     print("start test scheduler")
     while True:
         schedule.run_pending()
