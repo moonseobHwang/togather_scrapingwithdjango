@@ -14,8 +14,8 @@
         </tr>
         {%for col in page_obj%}
         <tr>
-            <td><a href="https://www.k-startup.go.kr/common/announcement/announcementList.do?mid=30004&bid=701&searchAppAt=A">page_obj.post_title}}</a></td>
-            <td>{{page_obj.due_enddate}}</td>
+            <td><a href="https://www.k-startup.go.kr/common/announcement/announcementList.do?mid=30004&bid=701&searchAppAt=A">col.post_title}}</a></td>
+            <td>{{col.due_enddate}}</td>
         </tr>
         {%endfor%}
     </table>
