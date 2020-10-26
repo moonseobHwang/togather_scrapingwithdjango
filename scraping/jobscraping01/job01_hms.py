@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from pymongo import MongoClient
 
 driver = webdriver.Chrome(executable_path='/home/rapa/Documents/Develops/chromedriver')
-db_url='mongodb://127.0.0.1:7020'
+db_url='mongodb://127.0.0.1:27017'
 
 def jobprocess():
     now = time.strftime('%Y-%m-%d', time.localtime(time.time()))
