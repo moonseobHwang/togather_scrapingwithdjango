@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from home import views	 as homeview
+from home import views as homeview
+from job01 import views as job01view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", homeview.home),
+    path("job01/", job01view.list_job01, name='list_job01'),
 ]
